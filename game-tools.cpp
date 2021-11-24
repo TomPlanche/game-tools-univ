@@ -6,22 +6,13 @@
 
 #include "game-tools.h"
 
-# ifdef _WIN32
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
     #include <conio.h>
-# else
+#else
     #include <unistd.h>
-# endif
+#endif
 
 using namespace OS;
-
-#define RESET "\033[0m"
-#define ROUGE "\033[0;31m"
-#define VERT "\033[0;32m"
-#define JAUNE "\033[0;33m"
-#define BLEU "\033[0;34m"
-#define VIOLET "\033[0;35m"
-#define CYAN "\033[0;36m"
-#define BLANC "\033[0;37m"
 
 
 #include <chrono>  // pour la fonction now() utilisée dans la fonction random()
@@ -31,6 +22,16 @@ using namespace std::chrono;
 
 
 # ifdef __APPLE__
+
+    #define RESET "\033[0m"
+    #define ROUGE "\033[0;31m"
+    #define VERT "\033[0;32m"
+    #define JAUNE "\033[0;33m"
+    #define BLEU "\033[0;34m"
+    #define VIOLET "\033[0;35m"
+    #define CYAN "\033[0;36m"
+    #define BLANC "\033[0;37m"
+
     // Retourne le code couleur de la couleur passé en paramètre
     string getCodeCouleur (Couleur couleur) {
         string codeCouleur;

@@ -16,7 +16,7 @@ using std::string;
 using std::flush;
 
 
-# ifdef _WIN32
+# if defined(WIN32) || defined(_WIN32) || defined(__WIN32) 
     #include <windows.h>
 # endif
 
