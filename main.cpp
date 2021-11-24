@@ -31,6 +31,7 @@ int main(void) {
     // ! Traitements
 
     cout << OS::random(1, 5) << endl;
+    OS::afficherTexteEnCouleur("Test", rouge);
 
 
     return 0;

@@ -185,7 +185,7 @@ void OS::afficherTexteEnCouleur(char caractere, Couleur couleur, bool retourALaL
 }
 
 
-void OS::afficherNombreEnCouleur(double nombre, Couleur couleur, bool retourALaLigne = false) {
+void OS::afficherNombreEnCouleur(double nombre, Couleur couleur, bool retourALaLigne) {
     # ifdef _WIN32
         HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
         SetConsoleTextAttribute(idTerminal, couleur);
