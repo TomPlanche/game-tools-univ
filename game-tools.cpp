@@ -151,7 +151,7 @@ void OS::effacer() {
 }
 
 
-void afficherTexteEnCouleur(string chaine, Couleur couleur, bool retourALaLigne) {
+void OS::afficherTexteEnCouleur(string chaine, Couleur couleur, bool retourALaLigne) {
     # ifdef _WIN32
         HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
         SetConsoleTextAttribute(idTerminal, couleur);
@@ -160,6 +160,40 @@ void afficherTexteEnCouleur(string chaine, Couleur couleur, bool retourALaLigne)
     # else
         string codeCouleur = getCodeCouleur(couleur);
         cout << codeCouleur << chaine << RESET << flush;
+    # endif
+
+    if (retourALaLigne) {
+        cout << endl;
+    }
+}
+
+
+void OS::afficherTexteEnCouleur(char caractere, Couleur couleur, bool retourALaLigne) {
+    # ifdef _WIN32
+        HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(idTerminal, couleur);
+        cout << caractere << flush;
+        SetConsoleTextAttribute(idTerminal, gris);
+    # else
+        string codeCouleur = getCodeCouleur(couleur);
+        cout << codeCouleur << caractere << RESET << flush;
+    # endif
+
+    if (retourALaLigne) {
+        cout << endl;
+    }
+}
+
+
+void OS::afficherNombreEnCouleur(double nombre, Couleur couleur, bool retourALaLigne = false) {
+    # ifdef _WIN32
+        HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(idTerminal, couleur);
+        cout << nombre << flush;
+        SetConsoleTextAttribute(idTerminal, gris);
+    # else
+        string codeCouleur = getCodeCouleur(couleur);
+        cout << codeCouleur << nombre << RESET << flush;
     # endif
 
     if (retourALaLigne) {
