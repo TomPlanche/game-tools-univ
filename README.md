@@ -1,11 +1,24 @@
-# game-tools-linux
+<h1 style="text-align: center;
+            font-size: 3rem;
+            background-color: var(--background);
+            display: block;
+            width: 900px;
+            min-height: 90px;
+            cursor: pointer;
+            border: 3px solid #32CBF1;
+            box-shadow:
+            5px  -5px  0 -5px rgba(88, 133, 176, 0.1), 5px  -5px  #10BBE5,
+            10px -10px 0 -5px rgba(88, 133, 176, 0.1), 10px -10px #0D98BA,
+            15px -15px 0 -5px rgba(88, 133, 176, 0.1), 15px -15px #0A758F,
+            20px -20px 0 -5px rgba(88, 133, 176, 0.1), 20px -20px #075264">
+game-tools-universel
+</h1>
 
 game-tools est un petit module C++ contenant des sous-programmes utiles pour développer des petits jeux s'exécutant dans un terminal. Ce module met à disposition des fonctionnalités simples permettant d'effacer le terminal, de mettre le programme en pause,
 d'afficher des éléments en couleur ou encore de générer un nombre entier aléatoire.
 
-Cette version du module `game-tools` n'est utilisable que sur des systèmes d'exploitation **linux**.
 
-La documentation Doxygen du projet est disponible sur <a href="https://patrick-etcheverry.github.io/game-tools-linux/files.html">cette page</a>.
+
 
 
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
@@ -26,12 +39,35 @@ En supposant que :
 
 vous pouvez intégrer les fonctionnalités du module game-tools dans votre code via une directive `include` :
 ```cpp
-#include "game-tools.h"
+// . Importation Des Bibliothèques Nécessaires.
+// . Importation Des Bibliothèques Nécessaires.
 #include <iostream>
-using namespace std;
+#include "game-tools.h"
 
-int main(void)
-{
+// . Permet d'éviter l'utilisation redondante de `OS::random` lors de l'appel de cette fonction
+using OS::random;
+
+// .  ==========================================================================
+// .                                  MAIN                                      
+// .  ==========================================================================
+
+int main(void) {
+    /**\
+      * @goal                           :  Montrer comment utiliser la fonction 'effacer'
+      * @author :                       :  T.Planche
+    \**/
+
+    // ! Définition Variables
+    unsigned short int nombreAleatoire;
+
+    //! Traitement
+
+    // Générer un nombre aléatoire compris entre 0 et 100
+    nombreAleatoire = random(0, 100);
+
+    // Afficher le nombre aléatoire
+    cout << "Un entier aleatoire compris entre 0 et 100 : " << nombreAleatoire << endl;
+
     return 0;
 }
 ```
@@ -51,12 +87,14 @@ La fonction `random` permet de générer un nombre **entier** compris dans un in
 Le code ci-dessous montre un exemple d'usage de la fonction `random` pour générer un nombre entier compris entre 0 et 100.
 
 ```cpp
-#include "game-tools.h"
+// . Importation Des Bibliothèques Nécessaires.
 #include <iostream>
-using namespace std;
+#include "game-tools.h"
 
-int main(void)
-{
+// . Permet d'éviter l'utilisation redondante de `OS::random` lors de l'appel de cette fonction
+using OS::random;
+
+int main() {
    unsigned short int nombreAleatoire;
 
    // Générer un nombre aléatoire compris entre 0 et 100
@@ -76,9 +114,11 @@ int main(void)
 Le module *game-tools* met à disposition un type `Couleur` qui peut être utilisé pour déclarer des variables représentant des couleurs :  
 
 ```cpp
-#include "game-tools.h"
+// . Importation Des Bibliothèques Nécessaires.
 #include <iostream>
-using namespace std;
+#include "game-tools.h"
+
+using OS::afficherNombreEnCouleur;
 
 int main(void)
 {
@@ -94,8 +134,7 @@ Les variables de type `Couleur` peuvent prendre les valeurs suivantes bleu, vert
 #include <iostream>
 using namespace std;
 
-int main(void)
-{
+int main(void) {
    Couleur maCouleurPreferee;
    maCouleurPreferee = bleu;
 
@@ -111,12 +150,25 @@ Le module *game-tools* propose un sous-programme `afficherTexteEnCouleur` qui pe
 
 Le code ci-dessous donne quelques exemples d'usage du sous-programme `afficherTexteEnCouleur` :
 ```cpp
-#include "game-tools.h"
 #include <iostream>
-using namespace std;
+#include "game-tools.h"
 
-int main(void)
-{
+using OS::afficherNombreEnCouleur;
+using OS::afficherTexteEnCouleur;
+using OS::random;
+using OS::effacer;
+using OS::pause;
+
+// .  ==========================================================================
+// .                                  MAIN                                      
+// .  ==========================================================================
+
+int main(void) {
+    /**\
+      * @goal                           :  Montrer comment utiliser la fonction 'afficherNombreEnCouleur'
+      * @author :                       :  T.Planche
+    \**/
+
     // Afficher des textes en couleur
     cout << "** Du texte en couleur **" << endl;
 
@@ -132,7 +184,8 @@ int main(void)
     /* Affiche le mot "optimistes" en jaune AVEC retour à la ligne
        (car utilisation de la valeur true en dernier paramètre) */
     afficherTexteEnCouleur("optimistes", jaune, true);
-   return 0;
+
+    return 0;
 }
 ```
 
@@ -163,13 +216,27 @@ Les nombres à afficher en couleur peuvent être des nombres entiers ou des nomb
 
 Le code ci-dessous donne quelques exemples d'usage du sous-programme `afficherNombreEnCouleur` :
 ```cpp
-#include "game-tools.h"
+// . Importation Des Bibliothèques Nécessaires.
 #include <iostream>
-using namespace std;
+#include "game-tools.h"
 
-int main(void)
-{
-   // Afficher des nombres en couleur
+using OS::afficherNombreEnCouleur;
+using OS::afficherTexteEnCouleur;
+using OS::random;
+using OS::effacer;
+using OS::pause;
+
+// .  ==========================================================================
+// .                                  MAIN                                      
+// .  ==========================================================================
+
+int main(void) {
+    /**\
+      * @goal                           :  Montrer comment utiliser la fonction 'afficherNombreEnCouleur'
+      * @author :                       :  T.Planche
+    \**/
+
+    // Afficher des nombres en couleur
     cout << "** Des nombres en couleur **" << endl;
 
     /* Affiche le nombre 5 en bleu AVEC retour à la ligne
@@ -186,6 +253,7 @@ int main(void)
 
     return 0;
 }
+
 ```
 
 ![Afficher des nombres en couleur](screenshots/nombre-en-couleur.jpg)
@@ -210,12 +278,26 @@ En appelant la procédure `pause` il est possible de spécifier une durée de pa
 Le code ci-dessous donne quelques exemples d'usage de la procédure `pause` :
 
 ```cpp
-#include "game-tools.h"
+// . Importation Des Bibliothèques Nécessaires.
 #include <iostream>
-using namespace std;
+#include "game-tools.h"
 
-int main(void)
-{
+using OS::afficherNombreEnCouleur;
+using OS::afficherTexteEnCouleur;
+using OS::random;
+using OS::effacer;
+using OS::pause;
+
+// .  ==========================================================================
+// .                                  MAIN                                      
+// .  ==========================================================================
+
+int main(void) {
+    /**\
+      * @goal                           :  Montrer comment utiliser la fonction 'pause'
+      * @author :                       :  T.Planche
+    \**/
+
     // Afficher un triangle coloré de manière progressive
     cout << "Appuyer sur Entree pour afficher progressivement un triangle en couleur..." << endl;
 
@@ -237,6 +319,7 @@ int main(void)
 
     return 0;
 }
+
 ```
 
 ![Faire des pauses](screenshots/triangle.gif)
@@ -248,12 +331,27 @@ int main(void)
 La procédure `effacer` permet d'effacer le contenu affiché dans le terminal. Le code ci-dessous donne un exemple d'utilisation de cette fonctionnalité :
 
 ```cpp
-#include "game-tools.h"
-#include <iostream>
-using namespace std;
 
-int main(void)
-{
+// . Importation Des Bibliothèques Nécessaires.
+#include <iostream>
+#include "game-tools.h"
+
+using OS::afficherNombreEnCouleur;
+using OS::afficherTexteEnCouleur;
+using OS::random;
+using OS::effacer;
+using OS::pause;
+
+// .  ==========================================================================
+// .                                  MAIN                                      
+// .  ==========================================================================
+
+int main(void) {
+    /**\
+      * @goal                           :  Montrer comment utiliser la fonction 'effacer'
+      * @author :                       :  T.Planche
+    \**/
+
     // Afficher un triangle coloré de manière progressive
     pause();
     cout << "** Un triangle en couleur qui s'affiche progressivement **" << endl;
@@ -287,6 +385,7 @@ int main(void)
 
     return 0;
 }
+
 ```
 
 ![Effacer l'écran](screenshots/triangle2.gif)
