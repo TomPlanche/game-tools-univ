@@ -82,6 +82,7 @@ int OS::random(int min, int max) {
     return ((distributionNombres(generateur) % (max - min + 1)) + min);
 }
 
+
 void OS::pause(unsigned int dureeEnSecondes) {
     if (dureeEnSecondes == 0) {
         # ifdef _WIN32
@@ -147,4 +148,21 @@ void OS::effacer() {
     #else
         cout << "\033[2J\033[1;1H";
     #endif
+}
+
+
+void afficherTexteEnCouleur(string chaine, Couleur couleur, bool retourALaLigne) {
+    # ifdef _WIN32
+        HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(idTerminal, couleur);
+        cout << chaine << flush;
+        SetConsoleTextAttribute(idTerminal, gris);
+    # else
+        string codeCouleur = getCodeCouleur(couleur);
+        cout << codeCouleur << chaine << RESET << flush;
+    # endif
+
+    if (retourALaLigne) {
+        cout << endl;
+    }
 }
