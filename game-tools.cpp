@@ -82,5 +82,25 @@ int OS::random(int min, int max) {
     return ((distributionNombres(generateur) % (max - min + 1)) + min);
 }
 
+void OS::pause(unsigned int dureeEnSecondes) {
+    if (dureeEnSecondes == 0) {
+        # ifdef _WIN32
+            char touche;
+            touche = char(getch());
+            touche = ' ';
+            cout << touche << endl;
+        # else
+            std::cin.ignore();
+        # endif
+    } else {
+        # ifdef _WIN32
+            const unsigned short int UNE_MILLISECONDE = 1000;
+            Sleep(dureeEnSecondes * UNE_MILLISECONDE);
+        # else
+            const unsigned int MICRO_SECONDE = 1000000;
+            usleep(dureeEnSecondes * MICRO_SECONDE);
+        # endif
+    }
+}
 
 
