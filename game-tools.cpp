@@ -1,5 +1,5 @@
 /**\
-  * @file    game-tools.cpp
+  * @file   game-tools.cpp
   * @author T.Planche
   * @brief  Corps du module game-tools
 \**/
@@ -18,7 +18,7 @@
 
 using namespace std::chrono;
 
-
+// . Si L'appareil utilisé est sous macOs
 # ifdef __APPLE__
 
     #define RESET "\033[0m"
@@ -71,6 +71,7 @@ using namespace std::chrono;
         return codeCouleur;
     }
 # endif
+
 
 int random(int min, int max) {
     std::default_random_engine generateur;

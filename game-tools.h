@@ -1,5 +1,5 @@
 /**\
-  * @file    game-tools.h
+  * @file   game-tools.h
   * @author T.Planche
   * @brief  Fichier d'entête du module game-tools
 \**/
@@ -106,7 +106,6 @@ void pause(unsigned int dureeEnSecondes = 0);
 
 /**
  * @brief Efface le contenu du terminal
- *
  */
 void effacer();
 
