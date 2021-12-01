@@ -46,72 +46,72 @@ using std::flush;
     enum Couleur {gris, bleu, vert,  cyan, rouge, violet, jaune, blanc};
 # endif
 
-namespace OS {
-    /**
-     * @brief Permet d'afficher une chaine de caractères en couleur.
-     *
-     * @param [in] chaine la chaine à afficher.
-     * @param [in] couleur la couleur à utiliser pour afficher la chaine. La couleur doit faire partie
-     * des valeurs proposées par le type #Couleur
-     * @param [in] retourALaLigne indique si l'affichage de la chaine doit être suivi d'un
-     * retour à la ligne (true) ou pas (false).
-     */
-    void afficherTexteEnCouleur(string chaine, Couleur couleur, bool retourALaLigne = false);
+
+/**
+ * @brief Permet d'afficher une chaine de caractères en couleur.
+ *
+ * @param [in] chaine la chaine à afficher.
+ * @param [in] couleur la couleur à utiliser pour afficher la chaine. La couleur doit faire partie
+ * des valeurs proposées par le type #Couleur
+ * @param [in] retourALaLigne indique si l'affichage de la chaine doit être suivi d'un
+ * retour à la ligne (true) ou pas (false).
+ */
+void afficherTexteEnCouleur(string chaine, Couleur couleur, bool retourALaLigne = false);
 
 
-    /**
-     * @brief Permet d'afficher un caractère en couleur.
-     *
-     * @param [in] caractere le caractère à afficher.
-     * @param [in] couleur la couleur à utiliser pour afficher le caractère. La couleur doit faire partie
-     * des valeurs proposées par le type #Couleur
-     * @param [in] retourALaLigne indique si l'affichage du caractère doit être suivi d'un
-     * retour à la ligne (true) ou pas (false).
-     */
-    void afficherTexteEnCouleur(char caractere, Couleur couleur, bool retourALaLigne = false);
-    
-
-    /**
-     * @brief Permet d'afficher un nombre en couleur.
-     *
-     * @param [in] nombre le nombre à afficher. Il peut s'agit d'un nombre entier ou d'un nombre à virgule.
-     * @param [in] couleur la couleur à utiliser pour afficher le nombre. La couleur doit faire partie
-     * des valeurs proposées par le type #Couleur
-     * @param [in] retourALaLigne indique si l'affichage du nombre doit être suivi d'un
-     * retour à la ligne (true) ou pas (false).
-     */
-    void afficherNombreEnCouleur(double nombre, Couleur couleur, bool retourALaLigne = false);
+/**
+ * @brief Permet d'afficher un caractère en couleur.
+ *
+ * @param [in] caractere le caractère à afficher.
+ * @param [in] couleur la couleur à utiliser pour afficher le caractère. La couleur doit faire partie
+ * des valeurs proposées par le type #Couleur
+ * @param [in] retourALaLigne indique si l'affichage du caractère doit être suivi d'un
+ * retour à la ligne (true) ou pas (false).
+ */
+void afficherTexteEnCouleur(char caractere, Couleur couleur, bool retourALaLigne = false);
 
 
-    /**
-     * @brief Génère un nombre entier aléatoire compris dans un intervalle donné.
-     *
-     * @param [in] min la borne min de l'intervalle.
-     * @param [in] max la borne max de l'intervalle.
-     * @return int le nombre aléatoire généré.
-     */
-    int random(int min, int max);
+/**
+ * @brief Permet d'afficher un nombre en couleur.
+ *
+ * @param [in] nombre le nombre à afficher. Il peut s'agit d'un nombre entier ou d'un nombre à virgule.
+ * @param [in] couleur la couleur à utiliser pour afficher le nombre. La couleur doit faire partie
+ * des valeurs proposées par le type #Couleur
+ * @param [in] retourALaLigne indique si l'affichage du nombre doit être suivi d'un
+ * retour à la ligne (true) ou pas (false).
+ */
+void afficherNombreEnCouleur(double nombre, Couleur couleur, bool retourALaLigne = false);
 
 
-    /**
-     * @brief Met en pause l'exécution du programme durant un temps
-     * déterminé ou jusqu'à ce que l'utilisateur appuie sur une touche.
-     *
-     * @param [in] dureeEnSecondes la durée en secondes de la pause. Si ce 
-     * paramètre est égal à 0, le programme s'interrompt jusqu'à ce que
-     * l'utilisateur appuie sur une touche.
-     */
-    void pause(unsigned int dureeEnSecondes = 0);
+/**
+ * @brief Génère un nombre entier aléatoire compris dans un intervalle donné.
+ *
+ * @param [in] min la borne min de l'intervalle.
+ * @param [in] max la borne max de l'intervalle.
+ * @return int le nombre aléatoire généré.
+ */
+int random(int min, int max);
 
 
-    /**
-     * @brief Efface le contenu du terminal
-     *
-     */
-    void effacer();
+/**
+ * @brief Met en pause l'exécution du programme durant un temps
+ * déterminé ou jusqu'à ce que l'utilisateur appuie sur une touche.
+ *
+ * @param [in] dureeEnSecondes la durée en secondes de la pause. Si ce 
+ * paramètre est égal à 0, le programme s'interrompt jusqu'à ce que
+ * l'utilisateur appuie sur une touche.
+ */
+void pause(unsigned int dureeEnSecondes = 0);
 
 
-} // namespace OS
+/**
+ * @brief Efface le contenu du terminal
+ *
+ */
+void effacer();
+
+
+
 
 
 # endif

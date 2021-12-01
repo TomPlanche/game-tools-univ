@@ -8,11 +8,6 @@
 #include <iostream>
 #include "game-tools.h"
 
-using OS::afficherNombreEnCouleur;
-using OS::afficherTexteEnCouleur;
-using OS::random;
-using OS::effacer;
-using OS::pause;
 
 // .  ==========================================================================
 // .                                  MAIN                                      

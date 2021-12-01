@@ -12,8 +12,6 @@
     #include <unistd.h>
 #endif
 
-using namespace OS;
-
 
 #include <chrono>  // pour la fonction now() utilisée dans la fonction random()
 #include <random>  // pour la fonction random
@@ -74,7 +72,7 @@ using namespace std::chrono;
     }
 # endif
 
-int OS::random(int min, int max) {
+int random(int min, int max) {
     std::default_random_engine generateur;
     std::uniform_int_distribution<int> distributionNombres;
     unsigned int tempsActuel = static_cast<unsigned int>(steady_clock::now().time_since_epoch().count());
@@ -84,7 +82,7 @@ int OS::random(int min, int max) {
 }
 
 
-void OS::pause(unsigned int dureeEnSecondes) {
+void pause(unsigned int dureeEnSecondes) {
     if (dureeEnSecondes == 0) {
         # ifdef _WIN32
             char touche;
@@ -106,7 +104,7 @@ void OS::pause(unsigned int dureeEnSecondes) {
 }
 
 
-void OS::effacer() {
+void effacer() {
     # ifdef _WIN32
         HANDLE idTerminal;
         CONSOLE_SCREEN_BUFFER_INFO caracteristiquesTerminal;
@@ -152,7 +150,7 @@ void OS::effacer() {
 }
 
 
-void OS::afficherTexteEnCouleur(string chaine, Couleur couleur, bool retourALaLigne) {
+void afficherTexteEnCouleur(string chaine, Couleur couleur, bool retourALaLigne) {
     # ifdef _WIN32
         HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
         SetConsoleTextAttribute(idTerminal, couleur);
@@ -169,7 +167,7 @@ void OS::afficherTexteEnCouleur(string chaine, Couleur couleur, bool retourALaLi
 }
 
 
-void OS::afficherTexteEnCouleur(char caractere, Couleur couleur, bool retourALaLigne) {
+void afficherTexteEnCouleur(char caractere, Couleur couleur, bool retourALaLigne) {
     # ifdef _WIN32
         HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
         SetConsoleTextAttribute(idTerminal, couleur);
@@ -186,7 +184,7 @@ void OS::afficherTexteEnCouleur(char caractere, Couleur couleur, bool retourALaL
 }
 
 
-void OS::afficherNombreEnCouleur(double nombre, Couleur couleur, bool retourALaLigne) {
+void afficherNombreEnCouleur(double nombre, Couleur couleur, bool retourALaLigne) {
     # ifdef _WIN32
         HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
         SetConsoleTextAttribute(idTerminal, couleur);
