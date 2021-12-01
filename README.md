@@ -1,4 +1,4 @@
-<h1 style="text-align: center;
+<h1  style="text-align: center;
             font-size: 3rem;
             background-color: var(--background);
             display: block;
@@ -7,10 +7,10 @@
             cursor: pointer;
             border: 3px solid #32CBF1;
             box-shadow:
-            5px  -5px  0 -5px rgba(88, 133, 176, 0.1), 5px  -5px  #10BBE5,
-            10px -10px 0 -5px rgba(88, 133, 176, 0.1), 10px -10px #0D98BA,
-            15px -15px 0 -5px rgba(88, 133, 176, 0.1), 15px -15px #0A758F,
-            20px -20px 0 -5px rgba(88, 133, 176, 0.1), 20px -20px #075264">
+                5px  -5px  0 -5px rgba(88, 133, 176, 0.1), 5px  -5px  #10BBE5,
+                10px -10px 0 -5px rgba(88, 133, 176, 0.1), 10px -10px #0D98BA,
+                15px -15px 0 -5px rgba(88, 133, 176, 0.1), 15px -15px #0A758F,
+                20px -20px 0 -5px rgba(88, 133, 176, 0.1), 20px -20px #075264;">
 game-tools-universel
 </h1>
 
@@ -45,9 +45,6 @@ vous pouvez intégrer les fonctionnalités du module game-tools dans votre code 
 // . Importation Des Bibliothèques Nécessaires.
 #include <iostream>
 #include "game-tools.h"
-
-// . Permet d'éviter l'utilisation redondante de `OS::random` lors de l'appel de cette fonction
-using OS::random;
 
 // .  ==========================================================================
 // .                                  MAIN                                      
@@ -93,8 +90,6 @@ Le code ci-dessous montre un exemple d'usage de la fonction `random` pour géné
 #include <iostream>
 #include "game-tools.h"
 
-// . Permet d'éviter l'utilisation redondante de `OS::random` lors de l'appel de cette fonction
-using OS::random;
 
 int main() {
    unsigned short int nombreAleatoire;
@@ -120,7 +115,6 @@ Le module *game-tools* met à disposition un type `Couleur` qui peut être utili
 #include <iostream>
 #include "game-tools.h"
 
-using OS::afficherNombreEnCouleur;
 
 int main(void)
 {
@@ -155,11 +149,6 @@ Le code ci-dessous donne quelques exemples d'usage du sous-programme `afficherTe
 #include <iostream>
 #include "game-tools.h"
 
-using OS::afficherNombreEnCouleur;
-using OS::afficherTexteEnCouleur;
-using OS::random;
-using OS::effacer;
-using OS::pause;
 
 // .  ==========================================================================
 // .                                  MAIN                                      
@@ -222,11 +211,6 @@ Le code ci-dessous donne quelques exemples d'usage du sous-programme `afficherNo
 #include <iostream>
 #include "game-tools.h"
 
-using OS::afficherNombreEnCouleur;
-using OS::afficherTexteEnCouleur;
-using OS::random;
-using OS::effacer;
-using OS::pause;
 
 // .  ==========================================================================
 // .                                  MAIN                                      
@@ -284,11 +268,6 @@ Le code ci-dessous donne quelques exemples d'usage de la procédure `pause` :
 #include <iostream>
 #include "game-tools.h"
 
-using OS::afficherNombreEnCouleur;
-using OS::afficherTexteEnCouleur;
-using OS::random;
-using OS::effacer;
-using OS::pause;
 
 // .  ==========================================================================
 // .                                  MAIN                                      
@@ -338,11 +317,6 @@ La procédure `effacer` permet d'effacer le contenu affiché dans le terminal. L
 #include <iostream>
 #include "game-tools.h"
 
-using OS::afficherNombreEnCouleur;
-using OS::afficherTexteEnCouleur;
-using OS::random;
-using OS::effacer;
-using OS::pause;
 
 // .  ==========================================================================
 // .                                  MAIN                                      
