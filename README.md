@@ -58,9 +58,9 @@ Si vous voulez tester le module `game-tools` vous pouvez également récupérer 
 
 - <a href="#générer-un-nombre-entier-aléatoire">Générer un nombre entier aléatoire</a>
 - <a href="#manipuler-des-couleurs">Manipuler Des Couleurs</a>
-- <a link="#afficher-du-texte-en-couleur">Afficher du texte en couleur</a>
-- <a link="#afficher-des-nombres-en-couleur">Afficher des nombres en couleur</a>
-- <a link="#mettre-en-pause">Mettre en pause</a>
+- <a href="#afficher-du-texte-en-couleur">Afficher du texte en couleur</a>
+- <a href="#afficher-des-nombres-en-couleur">Afficher des nombres en couleur</a>
+- <a href="#mettre-en-pause">Mettre en pause</a>
 - <a href="#effacer-le-contenu-du-terminal">Effacer le conenu du terminal</a>
 - <a href="#couleur-aléatoire">Couleur Aléatoire</a>
 
