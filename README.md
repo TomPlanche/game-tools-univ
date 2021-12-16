@@ -15,7 +15,7 @@ game-tools-universel
 </h1>
 
 
-!!! LIEN ENTRE [game-tool-linux](https://github.com/patrick-etcheverry/game-tools-linux.git) et [game-tools](https://github.com/patrick-etcheverry/game-tools.git) de [Patrick Etcheverry](https://github.com/patrick-etcheverry)
+!!! LIEN ENTRE [game-tool-linux](https://github.com/patrick-etcheverry/game-tools-linux.git) et [game-tools](https://github.com/patrick-etcheverry/game-tools.git) de [Patrick Etcheverry](https://github.com/patrick-etcheverry) + modifications et ajouts personels.
 
 game-tools est un petit module C++ contenant des sous-programmes utiles pour développer des petits jeux s'exécutant dans un terminal. Ce module met à disposition des fonctionnalités simples permettant d'effacer le terminal, de mettre le programme en pause,
 d'afficher des éléments en couleur ou encore de générer un nombre entier aléatoire.
