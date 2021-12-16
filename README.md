@@ -42,8 +42,6 @@ En supposant que :
 vous pouvez intégrer les fonctionnalités du module game-tools dans votre code via une directive `include` :
 ```cpp
 // . Importation Des Bibliothèques Nécessaires.
-// . Importation Des Bibliothèques Nécessaires.
-#include <iostream>
 #include "game-tools.h"
 
 // .  ==========================================================================
@@ -87,7 +85,6 @@ Le code ci-dessous montre un exemple d'usage de la fonction `random` pour géné
 
 ```cpp
 // . Importation Des Bibliothèques Nécessaires.
-#include <iostream>
 #include "game-tools.h"
 
 
@@ -112,7 +109,6 @@ Le module *game-tools* met à disposition un type `Couleur` qui peut être utili
 
 ```cpp
 // . Importation Des Bibliothèques Nécessaires.
-#include <iostream>
 #include "game-tools.h"
 
 
@@ -127,8 +123,6 @@ int main(void)
 Les variables de type `Couleur` peuvent prendre les valeurs suivantes bleu, vert, cyan, rouge, violet, jaune ou blanc :
 ```cpp
 #include "game-tools.h"
-#include <iostream>
-using namespace std;
 
 int main(void) {
    Couleur maCouleurPreferee;
@@ -146,7 +140,6 @@ Le module *game-tools* propose un sous-programme `afficherTexteEnCouleur` qui pe
 
 Le code ci-dessous donne quelques exemples d'usage du sous-programme `afficherTexteEnCouleur` :
 ```cpp
-#include <iostream>
 #include "game-tools.h"
 
 
@@ -208,7 +201,6 @@ Les nombres à afficher en couleur peuvent être des nombres entiers ou des nomb
 Le code ci-dessous donne quelques exemples d'usage du sous-programme `afficherNombreEnCouleur` :
 ```cpp
 // . Importation Des Bibliothèques Nécessaires.
-#include <iostream>
 #include "game-tools.h"
 
 
@@ -216,12 +208,11 @@ Le code ci-dessous donne quelques exemples d'usage du sous-programme `afficherNo
 // .                                  MAIN                                      
 // .  ==========================================================================
 
+/**\
+  * @brief Montrer comment utiliser la fonction 'effacer'
+  * @author : T.Planche
+\**/
 int main(void) {
-    /**\
-      * @goal                           :  Montrer comment utiliser la fonction 'afficherNombreEnCouleur'
-      * @author :                       :  T.Planche
-    \**/
-
     // Afficher des nombres en couleur
     cout << "** Des nombres en couleur **" << endl;
 
@@ -265,7 +256,6 @@ Le code ci-dessous donne quelques exemples d'usage de la procédure `pause` :
 
 ```cpp
 // . Importation Des Bibliothèques Nécessaires.
-#include <iostream>
 #include "game-tools.h"
 
 
@@ -273,12 +263,11 @@ Le code ci-dessous donne quelques exemples d'usage de la procédure `pause` :
 // .                                  MAIN                                      
 // .  ==========================================================================
 
+/**\
+  * @brief Montrer comment utiliser la fonction 'effacer'
+  * @author : T.Planche
+\**/
 int main(void) {
-    /**\
-      * @goal                           :  Montrer comment utiliser la fonction 'pause'
-      * @author :                       :  T.Planche
-    \**/
-
     // Afficher un triangle coloré de manière progressive
     cout << "Appuyer sur Entree pour afficher progressivement un triangle en couleur..." << endl;
 
@@ -312,22 +301,18 @@ int main(void) {
 La procédure `effacer` permet d'effacer le contenu affiché dans le terminal. Le code ci-dessous donne un exemple d'utilisation de cette fonctionnalité :
 
 ```cpp
-
 // . Importation Des Bibliothèques Nécessaires.
-#include <iostream>
 #include "game-tools.h"
 
 
 // .  ==========================================================================
 // .                                  MAIN                                      
 // .  ==========================================================================
-
+/**\
+  * @brief Montrer comment utiliser la fonction 'effacer'
+  * @author : T.Planche
+\**/
 int main(void) {
-    /**\
-      * @goal                           :  Montrer comment utiliser la fonction 'effacer'
-      * @author :                       :  T.Planche
-    \**/
-
     // Afficher un triangle coloré de manière progressive
     pause();
     cout << "** Un triangle en couleur qui s'affiche progressivement **" << endl;
@@ -365,3 +350,31 @@ int main(void) {
 ```
 
 ![Effacer l'écran](screenshots/triangle2.gif)
+
+
+
+### Couleur aléatoire
+
+La fonction `couleurAleatoire` retourne aléatoirement une couleur `Couleur`. Le code ci-dessous donne un exemple d'utilisation de cette fonctionnalité :
+
+```cpp
+// . Importation Des Bibliothèques Nécessaires.
+#include "game-tools.h"
+
+
+// .  ==========================================================================
+// .                                  MAIN                                      
+// .  ==========================================================================
+
+/**\
+  * @brief Montrer comment utiliser la fonction 'effacer'
+  * @author : T.Planche
+\**/
+int main(void) {
+    // . Affiche un texte de couleur aléatoire.
+	afficherTexteEnCouleur("Couleur Aléatoire", couleurAleatoire(), true);	
+
+    return 0;
+}
+```
+

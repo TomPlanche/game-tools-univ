@@ -89,7 +89,7 @@ void afficherTexteEnCouleur(char caractere, Couleur couleur, bool retourALaLigne
   * 
   * @return Couleur Générée aléatoirement.
 \**/
-Couleur couleurAleatoire(int nombre);
+Couleur couleurAleatoire();
 
 
 /**\

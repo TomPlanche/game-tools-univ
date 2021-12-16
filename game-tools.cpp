@@ -166,12 +166,16 @@ void effacer() {
     #endif
 }
 
-Couleur couleurAleatoire(int nombre) {
+Couleur couleurAleatoire() {
     // ! Déclaration Variables
     Couleur couleurRandom;
+    int nombreAleatoire;
+
+    // ! Déclaration Variables
+    nombreAleatoire = random(1, 100);
 
     // ! Traitements
-    switch (nombre % 6) {
+    switch (nombreAleatoire % 6) {
     case 1:
         couleurRandom = rouge;
         break;

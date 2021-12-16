@@ -13,12 +13,11 @@
 // .                                  MAIN                                      
 // .  ==========================================================================
 
+/**\
+  * @brief Montrer comment utiliser la fonction 'effacer'
+  * @author : T.Planche
+\**/
 int main(void) {
-    /**\
-      * @goal                           :  Montrer comment utiliser la fonction 'effacer'
-      * @author :                       :  T.Planche
-    \**/
-
     // . Afficher des nombres en couleur
     cout << "** Des nombres en couleur **" << endl;
     afficherNombreEnCouleur(5, bleu, true);
@@ -72,6 +71,12 @@ int main(void) {
     // . Afficher un entier aléatoire compris en 0 et 100
     cout << "Un entier aleatoire compris entre 0 et 100 : ";
     cout << random(0, 100) << endl << endl;
+
+    cout << "Appuyer sur Entree pour effacer l'ecran et générer un un texte de couleur aléatoire.";
+    pause();
+    effacer();
+    // . Affiche un texte de couleur aléatoire.
+    afficherTexteEnCouleur("Couleur Aléatoire", couleurAleatoire(), true);
 
     return 0;
 }
