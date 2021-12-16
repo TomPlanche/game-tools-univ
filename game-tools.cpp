@@ -25,16 +25,17 @@ using namespace std::chrono;
     #define ROUGE "\033[0;31m"
     #define VERT "\033[0;32m"
     #define JAUNE "\033[0;33m"
+    // #define BLEU "\033[0;34m"
     #define BLEU "\033[0;34m"
     #define VIOLET "\033[0;35m"
+    // #define VIOLET "\033[0;35m"
     #define CYAN "\033[0;36m"
     #define BLANC "\033[0;37m"
 
     // Retourne le code couleur de la couleur passé en paramètre
     string getCodeCouleur (Couleur couleur) {
         string codeCouleur;
-        switch (couleur)
-        {
+        switch (couleur) {
         case bleu:
             codeCouleur = BLEU;
             break;
@@ -72,38 +73,53 @@ using namespace std::chrono;
     }
 # endif
 
+void afficherNombreEnCouleur(double nombre, Couleur couleur, bool retourALaLigne) {
+    # ifdef _WIN32
+        HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(idTerminal, couleur);
+        cout << nombre << flush;
+        SetConsoleTextAttribute(idTerminal, gris);
+    # else
+        string codeCouleur = getCodeCouleur(couleur);
+        cout << codeCouleur << nombre << RESET << flush;
+    # endif
 
-int random(int min, int max) {
-    std::default_random_engine generateur;
-    std::uniform_int_distribution<int> distributionNombres;
-    unsigned int tempsActuel = static_cast<unsigned int>(steady_clock::now().time_since_epoch().count());
-    generateur.seed(tempsActuel);
-
-    return ((distributionNombres(generateur) % (max - min + 1)) + min);
-}
-
-
-void pause(unsigned int dureeEnSecondes) {
-    if (dureeEnSecondes == 0) {
-        # ifdef _WIN32
-            char touche;
-            touche = char(getch());
-            touche = ' ';
-            cout << touche << endl;
-        # else
-            std::cin.ignore();
-        # endif
-    } else {
-        # ifdef _WIN32
-            const unsigned short int UNE_MILLISECONDE = 1000;
-            Sleep(dureeEnSecondes * UNE_MILLISECONDE);
-        # else
-            const unsigned int MICRO_SECONDE = 1000000;
-            usleep(dureeEnSecondes * MICRO_SECONDE);
-        # endif
+    if (retourALaLigne) {
+        cout << endl;
     }
 }
 
+void afficherTexteEnCouleur(string chaine, Couleur couleur, bool retourALaLigne) {
+    # ifdef _WIN32
+        HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(idTerminal, couleur);
+        cout << chaine << flush;
+        SetConsoleTextAttribute(idTerminal, gris);
+    # else
+        string codeCouleur = getCodeCouleur(couleur);
+        cout << codeCouleur << chaine << RESET << flush;
+    # endif
+
+    if (retourALaLigne) {
+        cout << endl;
+    }
+}
+
+void afficherTexteEnCouleur(char caractere, Couleur couleur, bool retourALaLigne) {
+    # ifdef _WIN32
+        HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(idTerminal, couleur);
+        cout << caractere << flush;
+        SetConsoleTextAttribute(idTerminal, gris);
+    # else
+        string codeCouleur = getCodeCouleur(couleur);
+        cout << codeCouleur << caractere << RESET << flush;
+    # endif
+
+    if (retourALaLigne) {
+        cout << endl;
+    }
+}
 
 void effacer() {
     # ifdef _WIN32
@@ -150,53 +166,71 @@ void effacer() {
     #endif
 }
 
+Couleur couleurAleatoire(int nombre) {
+    // ! Déclaration Variables
+    Couleur couleurRandom;
 
-void afficherTexteEnCouleur(string chaine, Couleur couleur, bool retourALaLigne) {
-    # ifdef _WIN32
-        HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
-        SetConsoleTextAttribute(idTerminal, couleur);
-        cout << chaine << flush;
-        SetConsoleTextAttribute(idTerminal, gris);
-    # else
-        string codeCouleur = getCodeCouleur(couleur);
-        cout << codeCouleur << chaine << RESET << flush;
-    # endif
+    // ! Traitements
+    switch (nombre % 6) {
+    case 1:
+        couleurRandom = rouge;
+        break;
+    
+    case 2:
+        couleurRandom = vert;
+        break;
+    
+    case 3:
+        couleurRandom = jaune;
+        break;
+    
+    case 4:
+        couleurRandom = bleu;
+        break;
+    
+    case 5:
+        couleurRandom = violet;
+        break;
+    
+    case 6:
+        couleurRandom = cyan;
+        break;
+    
+    default:
+        break;
+    }
 
-    if (retourALaLigne) {
-        cout << endl;
+    return couleurRandom;
+
+}
+
+void pause(unsigned int dureeEnSecondes) {
+    if (dureeEnSecondes == 0) {
+        # ifdef _WIN32
+            char touche;
+            touche = char(getch());
+            touche = ' ';
+            cout << touche << endl;
+        # else
+            std::cin.ignore();
+        # endif
+    } else {
+        # ifdef _WIN32
+            const unsigned short int UNE_MILLISECONDE = 1000;
+            Sleep(dureeEnSecondes * UNE_MILLISECONDE);
+        # else
+            const unsigned int MICRO_SECONDE = 1000000;
+            usleep(dureeEnSecondes * MICRO_SECONDE);
+        # endif
     }
 }
 
+int random(int min, int max) {
+    std::default_random_engine generateur;
+    std::uniform_int_distribution<int> distributionNombres;
+    unsigned int tempsActuel = static_cast<unsigned int>(steady_clock::now().time_since_epoch().count());
+    generateur.seed(tempsActuel);
 
-void afficherTexteEnCouleur(char caractere, Couleur couleur, bool retourALaLigne) {
-    # ifdef _WIN32
-        HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
-        SetConsoleTextAttribute(idTerminal, couleur);
-        cout << caractere << flush;
-        SetConsoleTextAttribute(idTerminal, gris);
-    # else
-        string codeCouleur = getCodeCouleur(couleur);
-        cout << codeCouleur << caractere << RESET << flush;
-    # endif
-
-    if (retourALaLigne) {
-        cout << endl;
-    }
+    return ((distributionNombres(generateur) % (max - min + 1)) + min);
 }
 
-
-void afficherNombreEnCouleur(double nombre, Couleur couleur, bool retourALaLigne) {
-    # ifdef _WIN32
-        HANDLE idTerminal = GetStdHandle(STD_OUTPUT_HANDLE);
-        SetConsoleTextAttribute(idTerminal, couleur);
-        cout << nombre << flush;
-        SetConsoleTextAttribute(idTerminal, gris);
-    # else
-        string codeCouleur = getCodeCouleur(couleur);
-        cout << codeCouleur << nombre << RESET << flush;
-    # endif
-
-    if (retourALaLigne) {
-        cout << endl;
-    }
-}
