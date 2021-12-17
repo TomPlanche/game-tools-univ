@@ -33,7 +33,7 @@ d'afficher des éléments en couleur ou encore de générer un nombre entier al�
 
 Télécharger les fichiers `game-tools.h` et `game-tools.cpp` présents dans ce dépôt puis ajoutez les à votre code.
 
-**Exemple**
+## Exemple
 
 En supposant que :
 - le code de votre jeu se trouve dans le fichier `main.cpp`,
@@ -43,39 +43,23 @@ vous pouvez intégrer les fonctionnalités du module game-tools dans votre code 
 ```cpp
 // . Importation Des Bibliothèques Nécessaires.
 #include "game-tools.h"
-
-// .  ==========================================================================
-// .                                  MAIN                                      
-// .  ==========================================================================
-
-int main(void) {
-    /**\
-      * @goal                           :  Montrer comment utiliser la fonction 'effacer'
-      * @author :                       :  T.Planche
-    \**/
-
-    // ! Définition Variables
-    unsigned short int nombreAleatoire;
-
-    //! Traitement
-
-    // Générer un nombre aléatoire compris entre 0 et 100
-    nombreAleatoire = random(0, 100);
-
-    // Afficher le nombre aléatoire
-    cout << "Un entier aleatoire compris entre 0 et 100 : " << nombreAleatoire << endl;
-
-    return 0;
-}
 ```
 
 **Fichier de démo**
 
 Si vous voulez tester le module `game-tools` vous pouvez également récupérer le fichier `main.cpp` : il contient un petit programme de démonstration qui illustre l'usage des différentes fonctionnalités proposées par `game-tools`.
 
-
 ## Utilisation
 
+### Table des matières
+
+- <a href="#générer-un-nombre-entier-aléatoire">Générer un nombre entier aléatoire</a>
+- <a href="#manipuler-des-couleurs">Manipuler Des Couleurs</a>
+- <a href="#afficher-du-texte-en-couleur">Afficher du texte en couleur</a>
+- <a href="#afficher-des-nombres-en-couleur">Afficher des nombres en couleur</a>
+- <a href="#mettre-en-pause">Mettre en pause</a>
+- <a href="#effacer-le-contenu-du-terminal">Effacer le conenu du terminal</a>
+- <a href="#couleur-aléatoire">Couleur Aléatoire</a>
 
 ### Générer un nombre entier aléatoire
 
