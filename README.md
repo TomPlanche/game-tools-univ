@@ -14,7 +14,8 @@
 game-tools-universel
 </h1>
 
-!!! LIEN ENTRE [game-tool-linux](https://github.com/patrick-etcheverry/game-tools-linux.git) et [game-tools](https://github.com/patrick-etcheverry/game-tools.git) de [Patrick Etcheverry](https://github.com/patrick-etcheverry)
+
+!!! LIEN ENTRE [game-tool-linux](https://github.com/patrick-etcheverry/game-tools-linux.git) et [game-tools](https://github.com/patrick-etcheverry/game-tools.git) de [Patrick Etcheverry](https://github.com/patrick-etcheverry) + modifications et ajouts personels.
 
 game-tools est un petit module C++ contenant des sous-programmes utiles pour développer des petits jeux s'exécutant dans un terminal. Ce module met à disposition des fonctionnalités simples permettant d'effacer le terminal, de mettre le programme en pause,
 d'afficher des éléments en couleur ou encore de générer un nombre entier aléatoire.
@@ -36,10 +37,12 @@ Télécharger les fichiers `game-tools.h` et `game-tools.cpp` présents dans ce 
 ## Exemple
 
 En supposant que :
+
 - le code de votre jeu se trouve dans le fichier `main.cpp`,
 - les fichiers `game-tools.h` et `game-tools.cpp` se trouvent dans le même répertoire que le fichier `main.cpp`,
 
 vous pouvez intégrer les fonctionnalités du module game-tools dans votre code via une directive `include` :
+
 ```cpp
 // . Importation Des Bibliothèques Nécessaires.
 #include "game-tools.h"
@@ -89,6 +92,7 @@ int main() {
 
 
 ### Manipuler des couleurs
+
 Le module *game-tools* met à disposition un type `Couleur` qui peut être utilisé pour déclarer des variables représentant des couleurs :  
 
 ```cpp
@@ -105,6 +109,7 @@ int main(void)
 ```
 
 Les variables de type `Couleur` peuvent prendre les valeurs suivantes bleu, vert, cyan, rouge, violet, jaune ou blanc :
+
 ```cpp
 #include "game-tools.h"
 
@@ -123,6 +128,7 @@ int main(void) {
 Le module *game-tools* propose un sous-programme `afficherTexteEnCouleur` qui permet d'afficher une chaîne de caractères (ou un caractère) dans une couleur particulière. Cette couleur particulière sera de type `Couleur` (voir section précédente). Suite à l'affichage de la chaîne il est éventuellement possible d'ajouter un saut de ligne (voir exemple dans le code ci-dessous).
 
 Le code ci-dessous donne quelques exemples d'usage du sous-programme `afficherTexteEnCouleur` :
+
 ```cpp
 #include "game-tools.h"
 
@@ -163,14 +169,19 @@ int main(void) {
 **Remarques**
 
 - La procédure `afficherTexteEnCouleur` peut également afficher de simples caractères en couleur. Par exemple :
+
 ```cpp
 afficherTexteEnCouleur('A', cyan, false); // Affiche le caractère A en bleu cyan.
 ```
+
 - Par défaut, aucun retour à la ligne n'est ajouté suite à l'affichage du texte. Ainsi, lorsqu'aucun retour à la ligne n'est nécessaire, on peut aussi bien écrire :
+
 ```cpp
 afficherTexteEnCouleur("Tous ", bleu, false);
 ```
+
 que :
+
 ```cpp
 afficherTexteEnCouleur("Tous ", bleu);
 ```
@@ -183,6 +194,7 @@ La procédure `afficherNombreEnCouleur` permet d'afficher des nombres avec une c
 Les nombres à afficher en couleur peuvent être des nombres entiers ou des nombres à virgule. Suite à l'affichage d'un nombre il est également possible d'ajouter un saut de ligne (voir exemple dans le code ci-dessous).
 
 Le code ci-dessous donne quelques exemples d'usage du sous-programme `afficherNombreEnCouleur` :
+
 ```cpp
 // . Importation Des Bibliothèques Nécessaires.
 #include "game-tools.h"
@@ -222,10 +234,13 @@ int main(void) {
 **Remarque**
 
 Par défaut, aucun retour à la ligne n'est ajouté suite à l'affichage du nombre. Ainsi, lorsqu'aucun retour à la ligne n'est nécessaire, on peut aussi bien écrire :
+
 ```cpp
 afficherNombreEnCouleur(5, bleu, false);
 ```
+
 que :
+
 ```cpp
 afficherNombreEnCouleur(5, bleu);
 ```
