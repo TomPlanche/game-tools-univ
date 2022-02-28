@@ -172,7 +172,7 @@ Couleur couleurAleatoire() {
     int nombreAleatoire;
 
     // ! Déclaration Variables
-    nombreAleatoire = random(1, 100);
+    nombreAleatoire = randomPerso(1, 100);
 
     // ! Traitements
     switch (nombreAleatoire % 6) {
@@ -229,10 +229,11 @@ void pause(unsigned int dureeEnSecondes) {
     }
 }
 
-int random(int min, int max) {
+template <typename Type>
+Type randomPerso(Type min, Type max) {
     std::default_random_engine generateur;
-    std::uniform_int_distribution<int> distributionNombres;
-    unsigned int tempsActuel = static_cast<unsigned int>(steady_clock::now().time_since_epoch().count());
+    std::uniform_int_distribution<Type> distributionNombres;
+    Type tempsActuel = static_cast<Type>(steady_clock::now().time_since_epoch().count());
     generateur.seed(tempsActuel);
 
     return ((distributionNombres(generateur) % (max - min + 1)) + min);

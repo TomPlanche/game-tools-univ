@@ -117,7 +117,8 @@ void pause(unsigned int dureeEnSecondes = 0);
   * @param max la borne max de l'intervalle.
   * @return int le nombre aléatoire généré.
 \**/
-int random(int min, int max);
+template <typename Type>
+Type randomPerso(Type min, Type max);
 
 
 # endif

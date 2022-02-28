@@ -70,7 +70,7 @@ int main(void) {
 
     // . Afficher un entier aléatoire compris en 0 et 100
     cout << "Un entier aleatoire compris entre 0 et 100 : ";
-    cout << random(0, 100) << endl << endl;
+    cout << randomPerso(0, 100) << endl << endl;
 
     cout << "Appuyer sur Entree pour effacer l'ecran et générer un un texte de couleur aléatoire.";
     pause();
